@@ -4,6 +4,7 @@ import boardLogo from './assets/board.svg'
 import chatLogo from './assets/chat.svg'
 import creditLogo from './assets/credits.svg'
 import logo from './assets/logo.svg'
+import search from './assets/search.svg'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -19,11 +20,11 @@ function App() {
 const Nav = ({})=>{
   return(
     <div className='nav'>
-      <img  src={logo}></img>
+      <img className="logo"src={logo}></img>
         <ol>
-          <li><img src={boardLogo}></img></li>
-          <li><img src={chatLogo}></img></li>
-          <li><img src={creditLogo}></img></li>
+          <li><img className="button" src={boardLogo}></img></li>
+          <li><img className="button" src={chatLogo}></img></li>
+          <li><img className="button" src={creditLogo}></img></li>
         </ol>
       </div>
 
@@ -33,6 +34,10 @@ const Board = ()=>{
   return(
     <div className='board'>
       
+      <img src={search}></img>
+      <input className='searchFriends' type='search' placeholder='Search your friends'>
+      
+      </input>
     </div>
   )
 }

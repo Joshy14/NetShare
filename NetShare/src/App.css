@@ -20,6 +20,34 @@ ol{
 }
 li{
   margin-bottom: 1rem;
+  padding: .5rem;
+}
+.button{
+  width: 1.5rem;
+  height: auto;
+  transition: all .5s ease;
+}
+.button:hover{
+  width: 2.5rem;
+  height: auto;
+
+}
+.searchFriends{
+  height: 2rem;
+  width: 20rem;
+  border-radius: 15px;
+  cursor: text;
+  outline: none;
+  border-color: #3f3f3f;
+  border-style: solid;
+  border-width: 2px;
+  background-color: rgb(37, 37, 37);
+  padding:.5rem 1rem ;
+}
+}
+.logo{
+  width:3.5rem;
+  height: auto;
 }
 .app{
   display: flex;
@@ -28,8 +56,14 @@ li{
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: aliceblue;
-  
+  background: linear-gradient(-45deg, #fff, #3f3f3f, #acacac);
+  background-size: 400% 400%;
+  animation: gradient 30s ease-in-out infinite;
+}
+@keyframes gradient{
+  0%{background-position: 0% 50%;}
+  50%{background-position: 100% 50%;}
+  100%{background-position: 0% 50%;}
 }
 .window{
   display: flex;
