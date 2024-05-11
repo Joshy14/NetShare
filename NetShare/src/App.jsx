@@ -33,11 +33,12 @@ const Nav = ({})=>{
 const Board = ()=>{
   return(
     <div className='board'>
-      
+      <div className='searchInputDiv'>
       <img src={search}></img>
-      <input className='searchFriends' type='search' placeholder='Search your friends'>
+      <input className='searchFriends' type='search' placeholder='Search your friends'></input>
+      </div>
       
-      </input>
+      
     </div>
   )
 }
