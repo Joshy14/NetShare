@@ -34,12 +34,48 @@ const Board = ()=>{
   return(
     <div className='board'>
       <div className='searchInputDiv'>
-      <img src={search}></img>
-      <input className='searchFriends' type='search' placeholder='Search your friends'></input>
+        <img src={search}></img>
+        <input className='searchFriends' type='search' placeholder='Search your friends'></input>
+      </div>
+      <div className='soccerMom'>
+      <div className='DMreceiver'>
+        <p>Chat with</p>
+        <h2>Sina Hernandez</h2>
+      </div>
+      <div className='messages'>
+        <InboundMessage time="10:12am" message="Hey Sina, just making sure, you would like Sina, not Jared."></InboundMessage>
+        <OutboundMessage time="12:58pm" message="Yes, it is Sina. Sorry for the confusion."></OutboundMessage>
+      </div>
+      
       </div>
       
       
     </div>
   )
+}
+const InboundMessage = ({message, time})=>{
+  return(
+  <div className='incomingDMoutside'>
+    <div className='incomingDM'>
+      <p>{message}</p>
+    </div>
+    <sub>{time}</sub>
+  </div>
+  )
+  
+}
+const OutboundMessage = ({message, time})=>{
+  return(
+  <div className='outgoingDMoutside' >
+    <div className='outgoingDM'>
+      <p>{message}</p>
+    </div>
+    <div className='pluh'>
+      <sub>{time}</sub>
+    </div>
+    
+  </div>
+  )
+  
 }
 export default App
