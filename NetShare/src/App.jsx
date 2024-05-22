@@ -5,6 +5,7 @@ import chatLogo from './assets/chat.svg'
 import creditLogo from './assets/credits.svg'
 import logo from './assets/logo.svg'
 import search from './assets/search.svg'
+import sina from './assets/sina.jpg'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -40,15 +41,19 @@ const Board = ()=>{
       <div className='soccerMom'>
       <div className='DMreceiver'>
         <p>Chat with</p>
-        <h2>Sina Hernandez</h2>
+        <h2>Hansel Patel</h2>
       </div>
       <div className='messages'>
         <InboundMessage time="10:12am" message="Hey Sina, just making sure, you would like Sina, not Jared."></InboundMessage>
         <OutboundMessage time="12:58pm" message="Yes, it is Sina. Sorry for the confusion."></OutboundMessage>
+        <InboundMessage time="2:35am" message="Well, well, well. Sina, How- how do I explain this. I have to leave the country and go far away IMEDIATLY! Your promoted to the CEO. "></InboundMessage>
+        <div className='messageInputDiv'>
+        <img class='pfp'src={sina}></img>
+        <input className='messageInput' type='search' placeholder='Type your message here'></input>
+        </div>
       </div>
-      
-      </div>
-      
+    
+    </div>
       
     </div>
   )
