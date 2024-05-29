@@ -6,6 +6,10 @@ import creditLogo from './assets/credits.svg'
 import logo from './assets/logo.svg'
 import search from './assets/search.svg'
 import sina from './assets/sina.jpg'
+import useWebSocket from 'react-use-websocket'
+
+const wsURL = "ws://localhost:3001"
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -32,6 +36,17 @@ const Nav = ({})=>{
   )
 }
 const Board = ()=>{
+  const [message, setMessage] = useState("")
+  console.log(message)
+
+  useWebSocket(wsURL,
+    {
+      onOpen:()=>{
+        console.log("Websocket connection established.")
+      }
+    }
+  )
+
   return(
     <div className='board'>
       <div className='searchInputDiv'>
@@ -49,7 +64,10 @@ const Board = ()=>{
         <InboundMessage time="2:35am" message="Well, well, well. Sina, How- how do I explain this. I have to leave the country and go far away IMEDIATLY! Your promoted to the CEO. "></InboundMessage>
         <div className='messageInputDiv'>
         <img class='pfp'src={sina}></img>
-        <input className='messageInput' type='search' placeholder='Type your message here'></input>
+        <input className='messageInput' type='search' placeholder='Type your message here' value = {message} onChange={(e)=>{
+        setMessage(e.target.value)
+        }}></input>
+        <button className='sendMessage'>send</button>
         </div>
       </div>
     
