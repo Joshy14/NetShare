@@ -22,6 +22,21 @@ li{
   margin-bottom: 1rem;
   padding: .5rem;
 }
+.sendButton{
+  border-radius: 10px;
+  width: 15%;
+ height: 40%;
+  color:#3f3f3f;
+  border: 1px solid #3f3f3f;
+  transition: all 0.5s;
+}
+.sendButton:hover {
+  border-color: #646cff;
+  border-radius: 15px;
+  border-width: 3px;
+}
+
+
 .button{
   width: 1.5rem;
   height: auto;
@@ -31,7 +46,7 @@ li{
   width: 2.5rem;
   height: auto;
 
-}
+} 
 .searchFriends{
   background-color: transparent;
   border: none;

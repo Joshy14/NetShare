@@ -8,7 +8,7 @@ import search from './assets/search.svg'
 import sina from './assets/sina.jpg'
 import useWebSocket from 'react-use-websocket'
 
-const wsURL = "ws://localhost:3001"
+// const wsURL = "wss:https://improved-guide-xgrvx9qwv4526v9g-2048.app.github.dev/"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -37,16 +37,30 @@ const Nav = ({})=>{
 }
 const Board = ()=>{
   const [message, setMessage] = useState("")
-  console.log(message)
+  const [messages, setMessages] = useState([])
 
-  useWebSocket(wsURL,
-    {
-      onOpen:()=>{
-        console.log("Websocket connection established.")
-      }
-    }
-  )
+  //Warning: @react-refresh:267 WebSocket connection to 'wss://http//improved-guide-xgrvx9qwv4526v9g-2048.app.github.dev/' failed: WebSocket is closed before the connection is established.
+  //Error: react-use-websocket.js?v=5bf2d1b4:537 WebSocket connection to 'wss://http//improved-guide-xgrvx9qwv4526v9g-2048.app.github.dev/' failed: 
+  const socketUrl = "wss:http://improved-guide-xgrvx9qwv4526v9g-3000.app.github.dev/"
 
+const send = ()=>{
+  //message() = setMessage(e.target.value)
+  setMessages([...messages],message)
+  console.log(messages)
+}
+const {
+
+  sendMessage,
+  sendJsonMessage,
+  lastMessage,
+  lastJsonMessage,
+  readyState,
+  getWebSocket,
+} = useWebSocket(socketUrl, {
+  onOpen: () => console.log('opened'),
+  //Will attempt to reconnect on all close events, such as server shutting down
+  shouldReconnect: (closeEvent) => true,
+});
   return(
     <div className='board'>
       <div className='searchInputDiv'>
@@ -67,7 +81,9 @@ const Board = ()=>{
         <input className='messageInput' type='search' placeholder='Type your message here' value = {message} onChange={(e)=>{
         setMessage(e.target.value)
         }}></input>
-        <button className='sendMessage'>send</button>
+        <button className='sendButton' onClick={()=>{
+          send()
+        }}>Send</button>
         </div>
       </div>
     

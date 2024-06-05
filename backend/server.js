@@ -1,12 +1,64 @@
 //Import packages
 //const websocket = require("websocket").server
-const http = require("http")
-const {WebSocket, WebSocketServer} = require("ws")
-const server = http.createServer()
+// const http = require("http")
+// const {WebSocket, WebSocketServer} = require("ws")
+// const server = http.createServer()
+const express = require('express')
 
-const websocketServer = new WebSocketServer({
-    server
-})
+const webserver = express()
+ .use((req, res) =>
+   res.sendFile('/ws-client.html', { root: __dirname })
+ )
+ .listen(3000, () => console.log(`Listening on ${3000}`))
+
+const { WebSocketServer } = require('ws')
+const sockserver = new WebSocketServer({ port: 2048 })
+
+sockserver.on('connection', ws => {
+    console.log('New client connected!')
+    
+    ws.send('connection established')
+    
+    ws.on('close', () => console.log('Client has disconnected!'))
+    
+    ws.on('message', data => {
+        sockserver.clients.forEach(client => {
+        console.log(`distributing message: ${data}`)
+        client.send(`${data}`)
+        })
+    })
+    
+    ws.onerror = function () {
+        console.log('websocket error')
+    }
+}
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const websocketServer = new WebSocketServer({
+//     server
+// })
 
 
 // websocketServer.on('request', (request)=>{
@@ -22,9 +74,9 @@ const websocketServer = new WebSocketServer({
 //     })
 // })
 
-server.listen(3001, ()=>{
-    console.log("websocket server is listening on port: 3001")
-})     
+// server.listen(3001, ()=>{
+//     console.log("websocket server is listening on port: 3001")
+// })     
 
 
-websocketServer.on()
+// websocketServer.on()
