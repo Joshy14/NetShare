@@ -39,27 +39,17 @@ const Board = ()=>{
   const [message, setMessage] = useState("")
   const [messages, setMessages] = useState([])
 
-  //Warning: @react-refresh:267 WebSocket connection to 'wss://http//improved-guide-xgrvx9qwv4526v9g-2048.app.github.dev/' failed: WebSocket is closed before the connection is established.
-  //Error: react-use-websocket.js?v=5bf2d1b4:537 WebSocket connection to 'wss://http//improved-guide-xgrvx9qwv4526v9g-2048.app.github.dev/' failed: 
-  const socketUrl = "wss:http://improved-guide-xgrvx9qwv4526v9g-3000.app.github.dev/"
 
 const send = ()=>{
   //message() = setMessage(e.target.value)
   setMessages([...messages],message)
   console.log(messages)
 }
-const {
-
-  sendMessage,
-  sendJsonMessage,
-  lastMessage,
-  lastJsonMessage,
-  readyState,
-  getWebSocket,
-} = useWebSocket(socketUrl, {
-  onOpen: () => console.log('opened'),
-  //Will attempt to reconnect on all close events, such as server shutting down
-  shouldReconnect: (closeEvent) => true,
+const WS_URL = 'https://improved-guide-xgrvx9qwv4526v9g-8000.app.github.dev/';
+useWebSocket(WS_URL, {
+  onOpen: () => {
+    console.log('WebSocket connection established.');
+  }
 });
   return(
     <div className='board'>
@@ -76,6 +66,9 @@ const {
         <InboundMessage time="10:12am" message="Hey Sina, just making sure, you would like Sina, not Jared."></InboundMessage>
         <OutboundMessage time="12:58pm" message="Yes, it is Sina. Sorry for the confusion."></OutboundMessage>
         <InboundMessage time="2:35am" message="Well, well, well. Sina, How- how do I explain this. I have to leave the country and go far away IMEDIATLY! Your promoted to the CEO. "></InboundMessage>
+        <OutboundMessage time="9:21am" message="I'm sorry, are you okay? Please just confirm with me that this message is fake."></OutboundMessage>
+        <OutboundMessage time="11:12am" message="Hello? I'm starting to worry aout you and our companys safety. Please respond."></OutboundMessage>
+        <OutboundMessage time="1:46pm" message="Wow. I just checked Pike13 and it appears my status is ''CEO''. I realy need you to tell me whats happening."></OutboundMessage>
         <div className='messageInputDiv'>
         <img class='pfp'src={sina}></img>
         <input className='messageInput' type='search' placeholder='Type your message here' value = {message} onChange={(e)=>{
