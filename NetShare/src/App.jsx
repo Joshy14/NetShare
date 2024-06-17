@@ -7,6 +7,10 @@ import logo from './assets/logo.svg'
 import search from './assets/search.svg'
 import sina from './assets/sina.jpg'
 import useWebSocket from 'react-use-websocket'
+import Button from '@mui/material/Button'
+import SendIcon from '@mui/icons-material/Send'
+import Stack from '@mui/material/Stack'
+import cssBaseline from '@mui/material/CssBaseline'
 
 // const wsURL = "wss:https://improved-guide-xgrvx9qwv4526v9g-2048.app.github.dev/"
 
@@ -15,6 +19,7 @@ function App() {
 
   return (
     <div className='app'>
+      <cssBaseline></cssBaseline>
       <div className='window'>
         <Nav></Nav>
         <Board></Board>
@@ -62,23 +67,27 @@ useWebSocket(WS_URL, {
         <p>Chat with</p>
         <h2>Hansel Patel</h2>
       </div>
-      <div className='messages'>
+      <Stack 
+      sx={{overflowY:"scroll", scrollbarColor:"#fff"}}
+      width={"300px"} 
+      height={"490px"}>
         <InboundMessage time="10:12am" message="Hey Sina, just making sure, you would like Sina, not Jared."></InboundMessage>
-        <OutboundMessage time="12:58pm" message="Yes, it is Sina. Sorry for the confusion."></OutboundMessage>
+        <OutboundMessage time="12:58pm" message="Yes, it is  Sina. Sorry for the confusion."></OutboundMessage>
         <InboundMessage time="2:35am" message="Well, well, well. Sina, How- how do I explain this. I have to leave the country and go far away IMEDIATLY! Your promoted to the CEO. "></InboundMessage>
         <OutboundMessage time="9:21am" message="I'm sorry, are you okay? Please just confirm with me that this message is fake."></OutboundMessage>
         <OutboundMessage time="11:12am" message="Hello? I'm starting to worry aout you and our companys safety. Please respond."></OutboundMessage>
         <OutboundMessage time="1:46pm" message="Wow. I just checked Pike13 and it appears my status is ''CEO''. I realy need you to tell me whats happening."></OutboundMessage>
         <div className='messageInputDiv'>
-        <img class='pfp'src={sina}></img>
+        <img className='pfp'src={sina}></img>
         <input className='messageInput' type='search' placeholder='Type your message here' value = {message} onChange={(e)=>{
         setMessage(e.target.value)
         }}></input>
-        <button className='sendButton' onClick={()=>{
+       {/* <button className='sendButton' onClick={()=>{
           send()
-        }}>Send</button>
+        }}>Send</button> */}
+        <Button endIcon={<SendIcon />} size={"small"}sx={{margin:2, backgroundColor:"#fff", borderRadius:"10px"}}>send</Button>
         </div>
-      </div>
+      </Stack>
     
     </div>
       

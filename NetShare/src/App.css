@@ -19,6 +19,13 @@ li{
   margin-bottom: 1rem;
   padding: .5rem;
 }
+::-webkit-scrollbar-track{
+  background-color: rgb(145, 145, 145);
+}
+::-webkit-scrollbar-thumb{
+  background-color:#3f3f3f;
+}
+
 .sendButton{
   border-radius: 10px;
   width: 15%;
