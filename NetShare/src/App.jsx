@@ -10,7 +10,7 @@ import useWebSocket from 'react-use-websocket'
 import Button from '@mui/material/Button'
 import SendIcon from '@mui/icons-material/Send'
 import Stack from '@mui/material/Stack'
-import cssBaseline from '@mui/material/CssBaseline'
+import CssBaseline from '@mui/material/CssBaseline'
 
 // const wsURL = "wss:https://improved-guide-xgrvx9qwv4526v9g-2048.app.github.dev/"
 
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className='app'>
-      <cssBaseline></cssBaseline>
+      <CssBaseline></CssBaseline>
       <div className='window'>
         <Nav></Nav>
         <Board></Board>
