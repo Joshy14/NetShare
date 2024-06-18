@@ -11,7 +11,7 @@ ol{
   align-items: center;
   flex: 1;
   background-color: rgb(59, 59, 59);
-  height: 70vh;
+  height: 100%;
   border-top-left-radius: 40px;
   border-bottom-left-radius: 40px;
 }
@@ -74,6 +74,7 @@ h2{
 }
 .incomingDM{
   background-color: #d1d1d1;
+  color: #3f3f3f;
   padding: .2rem;
   left: 0px;
   width: fit-content;
@@ -189,8 +190,8 @@ h2{
   align-items: center;
   background-color: rgb(37, 37, 37);
   border-radius: 40px;
-  height: 70vh;
-  width: 70vw;
+  height: 85%;
+  width: 85%;
 }
 .board{
   flex: 10;
